@@ -1,0 +1,2 @@
+sextante-manual
+===============
