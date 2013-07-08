@@ -20,18 +20,23 @@ Contents:
    selection
    log
    first_saga_alg
+   no_data
+   vector_calculator
+   extents
+   html
    john_snow
    cutting_merging
+   masks (slope in elevation range)
    hydro
-   format_conversion
    modeler_twi
    modeler_basins
    modeler_basins_calculator
    modeler_twi_and_basins
    interpolation
    interpolation_cross
-   iterative
-   modeler_iterative
+   iterative (cutting)
+   modeler_iterative(slope of basins)
+   modeler_iterative_stats
    batch_conversion
    batch_modeler
    modeler_depend_on_algorithm   
