@@ -21,12 +21,12 @@ Contents:
    log
    first_saga_alg
    no_data
+   masks (slope in elevation range)
    vector_calculator
    extents
    html
    john_snow
-   cutting_merging
-   masks (slope in elevation range)
+   cutting_merging   
    hydro
    modeler_twi
    modeler_basins

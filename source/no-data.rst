@@ -25,7 +25,7 @@ The dialog contains 3 parameters.
 - Whether to use or not no--data values. A no--data value indicates that, for a given cell in the raster layer, no value has been recorded. The value for that cell is not an actual valid value, but some kind of placeholder instead. If this field is set to true, those values will be used as normal values, ignoring that they actually mean that there is no valid value for that cell. If it is false, the value will be ignored, and the result for that cell will be the no-data value (since there is one variable in the formula that has no value, there is no way of computing the result for that cell, and that is indicated by setting the no--data value for the resulting layer)
 
 
-To start with, we will change the units of the DEM from meters to feet. The formula we need is the folowwing one:
+To start with, we will change the units of the DEM from meters to feet. The formula we need is the following one:
 
 ::
 
@@ -40,3 +40,43 @@ Let's now perform another calculation, this time on the *accflow* layer. This la
 Open the algorithm dialog again, select the *accflow* layer as the only input layer, and enter the following formula: ``log(a)``. Make sure the *Use no-data values* parameter is set to false.
 
 Here is the layer that you will get
+
+
+If you select the *Identify* tool to know the value of a layer at agiven point, select the layer that we have just created, and click on a point outside of the basin, we will see that it contains a no--data value.
+
+.. figure::
+
+Now, recompute the layer but setting the *Use no-data values* parameter to true.
+
+You will see that it looks different, and using the *Identify* tool in the same cells yields a differnet value. That is because, this time, the no--data values have been used as valid values, and result values have been computed using them.
+
+.. figure::
+
+
+For the next exercise we are going to use two layers instead of one, and we are going to get a DEM with valid elevation values only within the basin defined in the second layer. Open the calculator dialog and select both layers of the project in the input layers field. Enter the following formula in the corresponding field:
+
+::
+
+	a/a * b
+
+``a`` refers to the accumulated flow layer (since it is the first one to appear in the list) and ``b`` refers to the DEM. What we are doing in the first part of the formula here is to divide the accumulated flow layer by itself, which will result in a value of 1 inside the basin, and a no--data value outside. Then we multiply by the DEM, to get the elevation value in those cells inside the basin (``DEM * 1 = DEM``) and the no--data value outside (``DEM * no_data = no_data)
+
+It's important in this case to not use the no--data values (*Use no-data values* set to false). When that behaviour is selected, if any of the variables in the equation is a no--data value, the result will always be a no--data value.
+
+Here is the resulting layer.
+
+This technique is used frequently to *mask* values ina raster layer, and is useful whenever you want to perform calculations for a region other that the arbitrary rectangular region that is used by raster layer. For instance, an elevation histogram of a raster layer doesn't have much meaning. If it is instead computed using only values corresponding to a basin (as in he case above), the result that we obtain is a meaningful one that actually gives information about the configuration of the basin.
+
+There are other interesting things about this algorithm that we have just run apart from the no--data values and how they are handled. If you have a look at the sizes and extents of the layers that we have multiplied, you will see that they are not the same. 
+
+.. figure::
+
+That means that those layers do not match, and that they cannot be multiplied directly without homogenizing those sizes and extents by resampling one or both layers. However, we did not do anything. SEXTANTE takes care of this situation and automatically resamples input layers when needed. The output extent is the minimum covering extent calculated from the imput layers, and the minimum cell size of their cellsizes. 
+
+In this case (and in most cases), this produces the desired results, but you should always be aware of the additional operations that are taking place, since they might affect the result. In cases when this behaviour might not be the desired, manual resampling should be applied in advance. In later chapters, we will see more about the behaviour of SEXTANTE when using multiple raster layers
+
+
+Let's finish this lesson with another masking exercise. We are going to calculate the mean slope in all areas with an elevation between 1000 and 1500 meters.
+
+*****
+
