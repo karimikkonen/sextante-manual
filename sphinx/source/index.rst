@@ -30,12 +30,12 @@ Contents:
    modeler_twi
    modeler_hydro
    modeler_hydro_calculator
-   modeler_twi_and_basins (model within model)
+   modeler_hydro_twi
    interpolation
    interpolation_cross
-   iterative (cutting)
-   modeler_iterative(slope of basins)
-   modeler_iterative_stats
+   iterative
+   iterative_model
+   iterative_model_stats
    batch_conversion
    batch_modeler
    modeler_depend_on_algorithm   
