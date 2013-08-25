@@ -35,7 +35,6 @@ Contents:
    interpolation_cross
    iterative
    iterative_model
-   iterative_model_stats
    batch_conversion
    batch_modeler
    modeler_depend_on_algorithm   

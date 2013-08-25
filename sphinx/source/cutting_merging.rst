@@ -4,14 +4,14 @@ Clipping and merging raster layers
 
 .. note:: In this lesson we will see another example of spatial data preparation, to continue using SEXTANTE in real-world scenarios
 
-For this lesson, we are going to calculate a slope layer for an area surrounding a given city, which is given in a vector layer with a single polygon. The base DEM is divided in two raster layers that, together, cover an area much larger than that around the city that we want to work with. If you open the project corresponding to this lesson, you will see something like this.
+For this lesson, we are going to calculate a slope layer for an area surrounding a city area, which is given in a vector layer with a single polygon. The base DEM is divided in two raster layers that, together, cover an area much larger than that around the city that we want to work with. If you open the project corresponding to this lesson, you will see something like this.
 
 .. image:: img/cutting_merging/medfordarea.png
 
 
-These layers hav two problems:
+These layers have two problems:
 
-* They covered an area that is too large for what I wanted (we are interested in a smaller region around the city center, shown in brown in the image above)
+* They cover an area that is too large for what we want (we are interested in a smaller region around the city center)
 * They are in two different files. (The city limits fall into just one single raster layer, but, as it's been said, we want some extra area around it).
 
 
@@ -34,7 +34,7 @@ Here is the resulting bounding box obtained using the parameters shown above
 
 It is a rounded box, but we can easily get the equivalent box with square angles, by running the *Polygon from layer extent* algorithm on it. We could have buffered the city limits first, and then calculate the extent rectangle, saving one step.
 
-.. image:: img/cutting_merging/buffer_dialog.png 		
+.. image:: img/cutting_merging/buffer_squared.png 		
 
 
 With this layer that contains the bounding box of the raster layer that we want to obtain, we can crop both of the raster layers, using the *Clip Grid with Polygons algorithm.*
@@ -58,7 +58,7 @@ Now it is time to compute the slope layer.
 
 A slope layer can be computed with the *Slope, Aspect, Curvature* algorithm, but the DEM obtained in the last step is not suitable as input, since elevation values are in meters but cellsize is not expressed in meters (the layer uses a CRS with geographic coordinates). A reprojection is needed. To reproject a raster layer, the *Reproject raster layer* algorithm can be used. We reproject into a CRS with meters as units, so we can then correctly calculate the slope.
 
-.. image:: img/cutting_merging/reproject.png
+.. image:: img/cutting_merging/warp.png
 
 Here is the reprojected DEM.
 

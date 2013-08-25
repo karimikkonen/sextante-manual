@@ -53,7 +53,7 @@ For the next exercise we are going to use two layers instead of one, and we are 
 
 	a/a * b
 
-``a`` refers to the accumulated flow layer (since it is the first one to appear in the list) and ``b`` refers to the DEM. What we are doing in the first part of the formula here is to divide the accumulated flow layer by itself, which will result in a value of 1 inside the basin, and a no--data value outside. Then we multiply by the DEM, to get the elevation value in those cells inside the basin (``DEM * 1 = DEM``) and the no--data value outside (``DEM * no_data = no_data)
+``a`` refers to the accumulated flow layer (since it is the first one to appear in the list) and ``b`` refers to the DEM. What we are doing in the first part of the formula here is to divide the accumulated flow layer by itself, which will result in a value of 1 inside the basin, and a no--data value outside. Then we multiply by the DEM, to get the elevation value in those cells inside the basin (``DEM * 1 = DEM``) and the no--data value outside (``DEM * no_data = no_data``)
 
 Here is the resulting layer.
 

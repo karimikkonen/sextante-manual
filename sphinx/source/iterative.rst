@@ -1,7 +1,7 @@
 Iterative execution of algorithms
 ==================================
 
-.. note:: This lesson shows a different way of executing algorithms that use vector layers, by running them repeatedly, iterating over the feature in an input vector layer
+.. note:: This lesson shows a different way of executing algorithms that use vector layers, by running them repeatedly, iterating over the features in an input vector layer
 
 We already know the graphical modeler, which is one way of automating processing tasks. However, in some situations, the modeler might not be what we need to automate a given task. Let's see one of thoses situation and how to easily solve it using a different functionality; the iterative execution of algorithm.
 

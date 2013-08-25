@@ -11,13 +11,13 @@ Starting with the aforemetioned model, let's do the following modifications:
 
 First, calculate statistics of the flow accumulation layer using the *Raster layer statistics* algorithm.
 
-.. image::
+.. image:: img/modeler_hydro_calculator/stats.png
 
-This will generate a set of statistical values that will now be available for all numeric fields in other algorithms.
+This will generate a set of statistical values that will now be available for all numeric fields in other algorithms. 
 
 If you double click on the  *Channel network* algorithm to modify it, as we did in the last lesson, you will see now that you have other options apart from the numeric input that you added.
 
-.. image::
+.. image:: img/modeler_hydro_calculator/unfolded.png
 
 However, none of this values is suitable for being used as a valid threshold, since they will result in channel networks that will not be very realistic. We can, instead, derive some new parameter based on them, to get a better result. For instance, we can use the mean plus 2 times the standard deviation.
 
@@ -25,17 +25,21 @@ To add that arithmetical operation, we can use the calculator that you will find
 
 The parameters dialog of the calculator algorithm looks like this:
 
-.. image::
+.. image:: img/modeler_hydro_calculator/calculator.png
 
-As you can see, you have in there the same variables that were available in the *Threshold* field in the *Channel network* algorithm. Create you formula as shown below.
+As you can see, the dialgo is different to the other ones we have ssen, but you have in there the same variables that were available in the *Threshold* field in the *Channel network* algorithm. Enter the above formula and click on *OK* to add the algorithm. 
 
-.. image::
+.. image:: img/modeler_hydro_calculator/calculator_dependencies.png
 
-Click on *OK* to add the algorithm. 
+If you expand the outputs entry, as shown above, you will see that the model is connected to two of the values, namely the mean and the standard deviation, which are the ones that we have used in the formula.
 
-.. image::
+Adding this new algorithm will add a new numeric value. If you go again to the *Channel network* algorithm, you can now select that value in the *Threshold* parameter. 
 
-This will also add a new numeric value. If you go again to the *Channel network* algorithm, you can now select that value in the *Threshold* parameter. Click on *OK* and your model should look like this.
+.. image:: img/modeler_hydro_calculator/unfolded2.png
+
+Click on *OK* and your model should look like this.
+
+.. image:: img/modeler_hydro_calculator/final_model.png
 
 We are not using the numeric input that we added to the model, so it can be removed. Right--click on it and select *Remove*
 

@@ -10,21 +10,21 @@ To open the log, select the corresponding entry in the SEXTANTE menu. You will s
 
 .. image:: img/log/log.png
 
-It contains three blocks of information: *Info*, *Error* and *Algorithms*. Here is a description of all of them.
+It contains four blocks of information: *Info*, *Error*, *Warnings* and *Algorithms*. Here is a description of all of them.
 
 - *Info*. Some algorithms might leave here information about their execution. For instance, those algorithms that call an external application usually log the console output of that application to this entry. If you have a look at it, you will see that the output of the SAGA algorithm that we just run (and that fail to execute because input data was not correct) is stored here.
 
-.. image:: img/log/saga_log.png
+.. image:: img/log/log-saga.png
 
 This is helpful to understand what is going on. Advanced users will be able to analyze that output to find out why the algorithm failed. IF you are not an advanced user, this will be useful for others to help you diagnose the problem you are having, which might be a problem in the installation of the external software or an issue with the data you provided.
 
-Even if the algorithm could be executed, some algorithms might leave warnings in case the result might not be right. For instance, when executing an interpolation algorithm with a very small amount of points. The algorithm can run and will produce a result, but it is likely that it will not be correct, since more points should be used. It's a good idea to regularly check for this type of warnings if you are not sure about some aspect of a given algorithm.
+- *Warnings*. Even if the algorithm could be executed, some algorithms might leave warnings in case the result might not be right. For instance, when executing an interpolation algorithm with a very small amount of points. The algorithm can run and will produce a result, but it is likely that it will not be correct, since more points should be used. It's a good idea to regularly check for this type of warnings if you are not sure about some aspect of a given algorithm.
 
 - *Error*. Errors that appear and are not directly related to external applications are logged in this section.
 
 - *Algorithms*. All algorithms that are executed, even if they are executed from the GUI and not from the console (which will be explained later in this manual) are stored in this part of the log as a console call. That means that everytime you run an algorithm, a console command is added to the log, and you have the full history of your working session. Here is how that history looks like
 
-.. image:: history.png
+.. image:: img/log/history.png
 
 This can be very useful when starting wroking with the console, to learn about the syntax of algorithms. We will use it when we discuss how to run analysis commands from the console.
 

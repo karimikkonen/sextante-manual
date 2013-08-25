@@ -16,7 +16,9 @@ The SAGA path should already be configured and pointing to the folder where SAGA
 
 If you have installed QGIS not using the OSGeo4W installer, then you must enter the path to your SAGA installation (which you must have installed separately) there. The required version is SAGA 2.1
 
-In case you are using Linux, you do not have to set the path to your SAGA installation in the SEXTANTE configuration. Instead, you must install SAGA and make sure that the SAGA folder is in PATH, so it can be called from the console (just open a console and type ``saga_cmd`` to check it). Under Linux, the target version for SAGA is not 2.1, but 2.0.8. There are some 2.1 packages available, but they are not commonly installed and might have some issues, so SEXTANTE assumes you have the more common and stable 2.0.8.
+In case you are using Linux, you do not have to set the path to your SAGA installation in the SEXTANTE configuration. Instead, you must install SAGA and make sure that the SAGA folder is in PATH, so it can be called from the console (just open a console and type ``saga_cmd`` to check it). Under Linux, the target version for SAGA is also 2.1, but in some installations (such as the OSGeo Live DVD) you might have just 2.0.8 available. There are some 2.1 packages available, but they are not commonly installed and might have some issues, so if you prefer to use the more common and stable 2.0.8, you can do it by enabling 2.0.8 compatibility in the configuration dialog, under the *SAGA* group
+
+.. image:: img/first_saga_alg/enable208.png
 
 Once SAGA is installed, you can launch a SAGA algorithm double clicking on its name, as with any other algorithm. Since we are using the simplified interface, you do not know which algorithms are based on SAGA or in another external application, but if you happen to double--click on one of them and the corresponding application is not installed, you will see something like this.
 
@@ -24,15 +26,15 @@ Once SAGA is installed, you can launch a SAGA algorithm double clicking on its n
 
 In our case, and assuming that SAGA is correctly installed and configured, you should not see this window, and you will get to the parameters dialog instead.
 
-Let's try with a SAGA--based algorithm, the one called *Thiessen polygons*.
+Let's try with a SAGA--based algorithm, the one called *Split shapes layer randomly*.
 
-.. image:: img/first_saga_alg/thiessen.png
+.. image:: img/first_saga_alg/split.png
 
-Use the points layer in the project corresponding to this lesson as input, and you will get something like this.
+Use the points layer in the project corresponding to this lesson as input, and the default parameter values, and you will get something like this (the split is random, so your result might be different).
 
-.. image:: img/first_saga_alg/thiessen_result.png
+.. image:: img/first_saga_alg/split_layer.png
 
-This result has been computed by SAGA, and later taken by SEXTANTE and added to the QGIS project.
+The input layer has been split in two layer, each one with the same number of points. This result has been computed by SAGA, and later taken by SEXTANTE and added to the QGIS project.
 
 If all goes fine, you will not notice any difference between this SAGA--based algorithm and one of the others that we have previously run. However, SAGA might, for some reason, not be able to produce a result and not generate the file that SEXTANTE is expecting. In that case, SEXTANTE will have problems adding the result to the QGIS project, and will show an error message like this.
 
@@ -40,9 +42,12 @@ If all goes fine, you will not notice any difference between this SAGA--based al
 
 This kind of problems might happen, even if SAGA (or any other application that we are calling from SEXTANTE) is correctly installed, and it is important to know how to deal with them. Let's make SEXTANTE produce one of those error messages.
 
-From the points layer that we have used as input, select one single point. We saw in the last lesson that if a selection exists, only the selected features will be used. That means that if we now call the *Thiessen polygons* algorithm and use that points layer, we will be passing it one single point as input. However, this algorithm requires at least 3 points, so SAGA will not be able to compute anything.
+Open the *Create graticule from extent* algorithm and use the following values.
 
-Try it yourself and you will get the error dialog shown above.
+.. image:: img/first_saga_alg/create_graticule.png
+
+
+We are using  width and height values that is larger than the specified extent, so SAGA cannot produce any output. In other words, the parameter values are wrong, but they are not checked until SAGA gets them and tries to create the graticule. Since it cannot create it, it will not produce the expected layer, and you will see the error message shown above.
 
 Understanding this kind of problems will help you solve them and find an explanation to what is happening. As you can see in the error message, SEXTANTE performs a test to check that the connection with SAGA is working correctly, indicating you that there might be a problem in how the algorithm was executed. This applies not only to SAGA, but also to other external applicatinos as well.
 

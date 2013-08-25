@@ -10,13 +10,13 @@ Let's see one of those algorithms to understand how they work.
 
 Open the project with the data to be used in this lesson and then open the *Basic statistics for numeric fields* algorithm. 
 
-.. image:: 
+.. image:: img/html/paramdialog.png
 
 The algorithm is rather simple, and you just have to select the layer to use and one of its field (a numeric one). The output is of type HTML, but the corresponding box works exactly like the one that you can find in the case of a raster or vector output. You can enter a filepath or leave it blank to save to a temporary file. In this case, however, only the ``html`` and ``htm`` extensions are allowed, so there is no way of altering the output format by using a different one.
 
 Run the algorithm selecting the only layer in the project as input, and the *POP2000* field, and a new dialog like the one shown next will appear once the algorithm is executed and the parameters dialog is closed.
 
-.. image:: 
+.. image:: img/html/result.png
 
 This is the *Results viewer*. It keeps all the HTML result generated during the current session, easily accesible, so you can check them quickly whenever you need it. As it happens with layers, if you have saved the output to a temporary file, it will be deleted once you close QGIS. If you have saved to a non-temporary path, the file will remain, but it will not appear in the *Results viewer* the next time you open QGIS.
 
