@@ -23,40 +23,35 @@ Now for the next one, use the configuration shown below.
 
 Notice that we are not using the original layer as input, but the output of the previous run instead.
 
-The final filter layer, with a reduced set of points, should look like this.
-
-.. image:: img/interpolation/filter2.png
+The final filter layer, with a reduced set of points, should look similar to the original one, but it contains a smaller number of points. You can check that by comparing their attribute tables.
 
 Now let's rasterize the layer using the *Rasterize vector layer* algorith.
 
 .. image:: img/interpolation/rasterize.png
 
-The resulting layer looks like this.
+The *Filtered layer* layer refers to the resulting one of the second filter. It has the same name as the one produced by the first filter, since the name is assigned by the algorithm, but you should not use the first one. Since we will not be using it for anything else, you can safely remove it from your proect to avoid confusion, and leave just the last filtered layer.
+
+The resulting raster layer looks like this.
 
 .. image:: img/interpolation/rasterized.png
 
-It is already a raster layer, but it is missing data in most of its cells. It only contain valid values in those cells that contained a point from the vector layer that we have just rasterized, and a no--data value in all the other ones. To fill the missing values, we can use the *Close gaps* algorithm.
+It is already a raster layer, but it is missing data in some of its cells. It only contain valid values in those cells that contained a point from the vector layer that we have just rasterized, and a no--data value in all the other ones. To fill the missing values, we can use the *Close gaps* algorithm.
 
 .. image:: img/interpolation/close_gaps.png
 
 The layer without no--data values looks like this.
 
-.. image:: img/interpolation/closed.png
+.. image:: img/interpolation/filled.png
 
 To restrict the area covered by the data to just the region where crop yield was measured, we can clip the raster layer with the provided limits layer
 
 .. image:: img/interpolation/clip.png
 
-Here is the final result.
+And for a smoother result (less accurate but better for rendering in the background as a support layer), we can apply a Gaussian filter to the layer.
 
-.. image:: img/interpolation/clipped.png
-
-For a smoother result (less accurate but better for rendering in the background as a support layer), we can apply a Gaussian filter to the layer.
-
-
-.. image:: img/interpolation/filter.png
+.. image:: img/interpolation/gaussian.png
 
 With the above parameters you will get the following result
 
-.. image:: img/interpolation/filtered.png
+.. image:: img/interpolation/filtered_raster.png
 
