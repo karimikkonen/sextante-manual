@@ -2,11 +2,11 @@ First analysis example
 ============================================================
 
 
-.. note:: In this lesson we will perform some real analysis using just the toolbox, so you can get more familiar with the SEXTANTE elements.
+.. note:: In this lesson we will perform some real analysis using just the toolbox, so you can get more familiar with the processing framework elements.
 
-Now that SEXTANTE is configured and can use external algorithms, we have a very powerful tool to perform spatial analysis. It is time to work out a larger exercise with some real--world data. 
+Now that everything is configured and we can use external algorithms, we have a very powerful tool to perform spatial analysis. It is time to work out a larger exercise with some real--world data. 
 
-We will be using the well-known dataset that John Snow used in his groundbreaking work, and we will get some interesting results. The analysis of this dataset is pretty obvious and there is no need for sofisticated GIS techniques to end up with good results and conclusions, but it is a good way of showing how these spatial problems can be analyzed and solved by using different tools included in SEXTANTE.
+We will be using the well-known dataset that John Snow used in his groundbreaking work, and we will get some interesting results. The analysis of this dataset is pretty obvious and there is no need for sofisticated GIS techniques to end up with good results and conclusions, but it is a good way of showing how these spatial problems can be analyzed and solved by using different processing tools.
 
 The dataset contains shapefiles with cholera deaths and pump locations, and an OSM rendered map in TIFF format. Open the corresponding QGIS project for this lesson.
 
@@ -100,7 +100,7 @@ Execute the algorithm and you will get two new layers, one with the cost, and an
 There is not much difference when compared with the Voronoi polygons, but it it illustrates a different way of getting to the same result. Other parameters (i.e. steepness of streets) can be incorporated this way, just changing the cost layer (now cost is 1 through all cells).
 
 
-If you want a little challenge, the cholera_deaths points layer can be extended sampling the closest point raster layer, adding a new attribute with the index of the closest pump. Try to find out how to do that with SEXTANTE.
+If you want a little challenge, the ``cholera_deaths`` points layer can be extended sampling the closest point raster layer, adding a new attribute with the index of the closest pump. Try to find out how to do that.
 
 
 

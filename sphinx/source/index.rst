@@ -1,9 +1,9 @@
-.. SEXTANTE guide documentation master file, created by
+.. QGIS processing guide documentation master file, created by
    sphinx-quickstart on Thu Jun 13 00:05:30 2013.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-The SEXTANTE guide
+The QGIS processing guide
 ==========================================
 
 Contents:

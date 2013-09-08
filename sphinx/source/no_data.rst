@@ -5,7 +5,7 @@ The raster calculator. No-data values
 .. note:: In this lesson we will see how to use the raster calculator to perform some operations on raster layers. We will also explain what are no--data values and how the calculator and other algorithms deal with them
 
 
-The raster calculator is one of the most powerful algorithms that you will find in SEXTANTE. It's a very flexible and versatile algorithm that can be used for many different calculations, and one that will soon become an important part of your toolbox. 
+The raster calculator is one of the most powerful algorithms that you will find. It's a very flexible and versatile algorithm that can be used for many different calculations, and one that will soon become an important part of your toolbox. 
 
 In this lesson we will be performing some calculation with the raster calculator, most of them rather simple. This will let us see how it is used and how it deals with some particular situations that it might find. Understanding that is important to later get the expected results when using the calculator, and also to understand certain techniques that are commonly applied with it.
 
@@ -64,9 +64,9 @@ This technique is used frequently to *mask* values ina raster layer, and is usef
 
 There are other interesting things about this algorithm that we have just run apart from the no--data values and how they are handled. If you have a look at the extents of the layers that we have multiplied (you can do it double--clicking on their names of the layer in the table of contents and looking at their properties), you will see that they are not the same, since the extent covered by the flow accumulation layer is smaller that the extent of the full DEM.
 
-That means that those layers do not match, and that they cannot be multiplied directly without homogenizing those sizes and extents by resampling one or both layers. However, we did not do anything. SEXTANTE takes care of this situation and automatically resamples input layers when needed. The output extent is the minimum covering extent calculated from the imput layers, and the minimum cell size of their cellsizes. 
+That means that those layers do not match, and that they cannot be multiplied directly without homogenizing those sizes and extents by resampling one or both layers. However, we did not do anything. QGIS takes care of this situation and automatically resamples input layers when needed. The output extent is the minimum covering extent calculated from the imput layers, and the minimum cell size of their cellsizes. 
 
-In this case (and in most cases), this produces the desired results, but you should always be aware of the additional operations that are taking place, since they might affect the result. In cases when this behaviour might not be the desired, manual resampling should be applied in advance. In later chapters, we will see more about the behaviour of SEXTANTE when using multiple raster layers.
+In this case (and in most cases), this produces the desired results, but you should always be aware of the additional operations that are taking place, since they might affect the result. In cases when this behaviour might not be the desired, manual resampling should be applied in advance. In later chapters, we will see more about the behaviour of algorithms when using multiple raster layers.
 
 
 Let's finish this lesson with another masking exercise. We are going to calculate the mean slope in all areas with an elevation between 1000 and 1500 meters.

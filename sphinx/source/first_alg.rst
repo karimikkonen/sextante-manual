@@ -1,11 +1,11 @@
-Running our first SEXTANTE algorithm. The SEXTANTE toolbox
+Running our first algorithm. The  toolbox
 ============================================================
 
 
-.. note:: In this lesson we will run our first SEXTANTE algorithm, and get our first result from it.
+.. note:: In this lesson we will run our first algorithm, and get our first result from it.
 
 
-As we have already mentioned, SEXTANTE can run algorithms from other applications, but it also contains native algorithm that need no external software to be run. To start exploring SEXTANTE, we are going to run one of those native algorithms. In particular, we are going to calculate the centroids of set of polygons.
+As we have already mentioned, the processing framework can run algorithms from other applications, but it also contains native algorithm that need no external software to be run. To start exploring the processing framework, we are going to run one of those native algorithms. In particular, we are going to calculate the centroids of set of polygons.
 
 First, open the QGIS project corresponding to this lesson. It contains just a single layer with two polygons
 
@@ -25,7 +25,7 @@ To know more about the algorithm you are about to run, you can check to *Help* t
 
 .. image::  img/first_alg/help.png
 
-Going back to the parameters tab, all SEXTANTE algorithms have a similar interface, which basically contains input parameters that you have to fill, and outputs that you have to select where to store. In this case, the only inputs we have are a vector layer with polygons and a selector to select whether we want several centroids for a single feature in case it is a multipart features, or the algorithm should generate just one centroid for each feature.
+Going back to the parameters tab, all algorithms have a similar interface, which basically contains input parameters that you have to fill, and outputs that you have to select where to store. In this case, the only inputs we have are a vector layer with polygons and a selector to select whether we want several centroids for a single feature in case it is a multipart features, or the algorithm should generate just one centroid for each feature.
 
 Select the *Polygons* layer as input. The other field will have no effect at all, since the input layer has no multi-part features.
 
@@ -37,7 +37,7 @@ match any of the supported ones, a default extension (usually ``.dbf``` for tabl
 
 In all the exercises in this guide, we will be saving results to a temporary file, since there is no need to save them for a later use. Feel free to save them to a permament location if you want to.
 
-Notice that temporary files are deleted once you close QGIS. If you create a project with a SEXTANTE output that was saved as a temporary output, QGIS will complain when you try to open back the project later, since that output file will not exist.
+Notice that temporary files are deleted once you close QGIS. If you create a project with an output that was saved as a temporary output, QGIS will complain when you try to open back the project later, since that output file will not exist.
 
 Once you have configured the algorithm dialog, press *Run* to run the algorithm.
 
@@ -45,7 +45,7 @@ You will get the following output.
 
 .. image:: img/first_alg/canvas2.png
 
-The output has the same CRS as the input.  SEXTANTE assumes all input layers share the in the same CRS and does not perform any reprojection. Except in the case of some special algorithms (for instance, reprojection ones), the outputs will also have that same CRS. We will see more about this soon.
+The output has the same CRS as the input.  Geoalgorithms assumes all input layers share the in the same CRS and does not perform any reprojection. Except in the case of some special algorithms (for instance, reprojection ones), the outputs will also have that same CRS. We will see more about this soon.
 
 Try yourself saving it using different file formats (use, for instance, ``shp`` and ``geojson`` as extensions). Also, if you do not want the layer to be loaded in QGIS after it is generated, you can check off the check box that is found below the output path box.
 

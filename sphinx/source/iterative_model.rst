@@ -13,6 +13,10 @@ Since we have a workflow that involves several stapes (clipping + computing the 
 
 You can find the model already created in the data folder for this lesson, but it would be good if you first try to create it yourself. The clipped layer is not a final result in this case, since we are just interested in the curves, so this model will not generated any layers, but just a table with the curve data.
 
+The model should look like this:
+
+.. image:: img/iterative_model/model.png
+
 Add the model to you models folder, so it is available in the toolbox, and now execute it.
 
 .. image:: img/iterative_model/model.png
@@ -21,7 +25,7 @@ Select the DEM and watersheds basins, and do not forget to toggle the button tha
 
 The algorithm will be run several times, and the corresponding tables will be created and open in your QGIS project.
 
-.. image:: img/iterative_model/result.png
+.. image:: img/iterative_model/tables.png
 
 We can make this example more complex by extending the model and computing some slope statistics. Add the *Slope, aspect, curvatures* algorithm to the model, and then the *Raster statistics* algorithm, which should use the slope output as its only input.
 

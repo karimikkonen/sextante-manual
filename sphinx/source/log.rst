@@ -1,12 +1,12 @@
-The SEXTANTE log
+The processing log
 ====================
 
-.. note:: This lesson describes the SEXTANTE log
+.. note:: This lesson describes the processing log
 
-All the analysis performed with SEXTANTE is logged in its own logging system. This allows you to know more about what has been done with SEXTANTE, to solve problems when they happen, and also to re--run previous operations, since the logging system also implements some interactivity.
+All the analysis performed with the processing framework is logged in its own logging system. This allows you to know more about what has been done with the processing tools, to solve problems when they happen, and also to re--run previous operations, since the logging system also implements some interactivity.
 
 
-To open the log, select the corresponding entry in the SEXTANTE menu. You will see the following dialog.
+To open the log, select the corresponding entry in the processing menu. You will see the following dialog.
 
 .. image:: img/log/log.png
 

@@ -2,7 +2,7 @@ Hydrological analysis
 ============================================================
 
 
-.. note:: In this lesson we will perform some hydrological analysis. This analysis will be used in some of the following lessons, as it constitutes a very good example of an analysis workflow, and we will use it to demonstrate some advanced features of SEXTANTE
+.. note:: In this lesson we will perform some hydrological analysis. This analysis will be used in some of the following lessons, as it constitutes a very good example of an analysis workflow, and we will use it to demonstrate some advanced features.
 
 
 In this lesson, we are going to do some hydrological analysis. Starting with a DEM, we are going to extract a channel network, delineate watersheds and calculate some statistics. 
@@ -90,4 +90,4 @@ The resulting statistic are the following ones.
 
 .. image:: img/hydro/stats.png 
 
-We will use both the basin calculations procedure and the statistics calculation in other lessons, to find out how other SEXTANTE elements can help us automate both of them and work more effectively.
+We will use both the basin calculations procedure and the statistics calculation in other lessons, to find out how other elements can help us automate both of them and work more effectively.
