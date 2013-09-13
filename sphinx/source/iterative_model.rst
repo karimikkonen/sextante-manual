@@ -29,12 +29,9 @@ The algorithm will be run several times, and the corresponding tables will be cr
 
 We can make this example more complex by extending the model and computing some slope statistics. Add the *Slope, aspect, curvatures* algorithm to the model, and then the *Raster statistics* algorithm, which should use the slope output as its only input.
 
-.. image:: img/iterative_model/result.png
+.. image:: img/iterative_model/model2.png
 
 If you now run the model, apart from the tables you will get a set of pages with statistics. These pages will be available in the results dialog
 
 .. image:: img/iterative_model/result2.png
 
-Those statistical values are presented as text but, as it was already mentioned, they are also generated as single numerical outputs that can be used in the modeler, as we already did in a previous lesson. When an algorithm that generates numerical values is run in the iterative mode, all the values generated will be collected in a summary table. That summary table is also available in the result window.
-
-.. image:: img/iterative_model/result3.png

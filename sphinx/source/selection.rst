@@ -13,7 +13,7 @@ Unlike other analysis plugins in QGIS, you will not find in processing geoalgori
 
 You can test that yourself by selecting a few points in any of the layers that we used in the last chapter, and running the reprojection algorithm on them. The reprojected layer that you will obtain will contain only those points that were selected, unless there was no selection, which will cause the resulting layer to contain all points from the origin layer.
 
-To make a selection, you can use any of the available methods and tools in QGIS. However, you can also use SEXTANTE algorithms to do so. Algorithms for creating a selection are found in the toolbox under *Vector/Selection*
+To make a selection, you can use any of the available methods and tools in QGIS. However, you can also use a geoalgorithm to do so. Algorithms for creating a selection are found in the toolbox under *Vector/Selection*
 
 .. image:: img/selection/selection_algs.png
 
