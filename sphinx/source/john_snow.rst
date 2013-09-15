@@ -27,7 +27,7 @@ To get a more quantitative result, we can count the number of deaths in each pol
 
 .. image:: img/john_snow/pointsinpoly.png
 
-The new field will be called DEATHS, and we use the COUNT field as weighting field. The resulting table clearly reflects that the number of deaths in the polygon corresponding to the first pump is much larger than the other ones.
+The new field will be called *DEATHS*, and we use the *COUNT* field as weighting field. The resulting table clearly reflects that the number of deaths in the polygon corresponding to the first pump is much larger than the other ones.
 
 .. image:: img/john_snow/pointsinpolytable.png
 
@@ -45,63 +45,12 @@ A density layer will also give us a very clear view of what is happening. We can
 
 .. image:: img/john_snow/density.png
 
-
-Combining with the pumps layer, we see that there is one pump clearly in the hotspot where the maximum density of death cases is found.
-
-All these analysis are using euclidean distance, but people did not walk in straight lines to go to the pump to get some water. Let's try to take that into account.
-
-There are many sources of spatial data where we could get vector roads data, but let's imagine that we cannot have other data apart from the OSM image. How could we use it?
-
-First, let's classify the map, so as to have a new map with a given value (1 seems like a good one, we will later see why) in those pixels representing streets, and the no--data value in the rest of them. All non--street pixels correspond to buildings, and are rendered in a light-orange dark. This is a paletted image, and the index for that color is 204. To check it, you just have to select the information tool, select the image to query and click on any of those orange pixels. The dialog that shows up will tell you the band value.
-
-.. image:: img/john_snow/index.png
-
-So what we have to do is to change those pixels with a value of 204 to no-data (you cannot walk through buildings), and the rest of them to 1 (you can walk there). There are several ways of doing that. Using the *Reclassify* algorithm is one of them, but in this case we will use the *Raster calculator* algorithm instead.
-
-Here is how the parameters dialog has to be filled.
-
-.. image:: img/john_snow/calculator.png
-
-You have to select the OSMMap layer in the *Grids* field. The formula ``ifelse(a=204, -99999,1)`` tells the algorithm that if the value in first grid in the *Grids* field (grids are referred as a, b, c,... or g1, g2, g3, etc, and in this case we just have one), the resulting value will be -99999 (no-data), otherwise it will be 1.
-
-The resulting layer looks like this.
-
-.. image:: img/john_snow/roads.png
-
-
-Roads are rendered in grey, buildings are transparent. Rename it to *streets*
-
-You might notice that this is a quick and dirty classification, as it does not consider other colors in the map, like those of labels, but in the center area where the interesting stuff is happening, it represents a very good solution, so there is no need for more refinement.
-
-Let's turn this layer into a new one where no--data vlaues will be preserved, but all street pixels, instead of having a value of 1, will have the walking distance to the closest pump, considering, of course, the streets.  This is going to be a raster analysis, so let's first convert the pumps vector layer into a raster one.
-
-Select the *Rasterize vector layer* tool in and fill it as shown next.
-
-.. image:: img/john_snow/rasterize.png
+The resulting layer has the extent and cellsize of the streets raster layer. 
 
 Remember that, to get the output extent, you do not have to type it. Click on the button on the right-hand side and select *Use layer/canvas extent*.
 
 .. image:: img/john_snow/layerextent.png
 
+Select the streets raster layer and its extent will be automatically added to the text field. You must do the same with the cellsize, selecting the cellsize of that layer as well.
 
-Since we will be using this rasterized layer along with the streets one, select the streets layer and its extent will be automatically added to the text field. You must do the same with the cellsize, selecting the cellsize of the streets layer.
-
-The resulting layer looks mostly transparent, as it is all comprised of no-data values, except for those pixels where a point representing a pump was found. You might not see them, but those pixels are there, do not worry. We will use them in the next step. Rename the layer to "pumps"
-
-Select the  *Accumulated cost (isotropic)* algorithm and set the following values.
-
-.. image:: img/john_snow/costdialog.png
-
-
-Execute the algorithm and you will get two new layers, one with the cost, and another with the index of the closest destination point (the closest pump). This last one is really more interesting for us. Changing the styling to use the *Pseudocolor* color map, and adding the vector *Pumps* and *Cholera_deaths* layers, you should get something like this.
-
-.. image:: img/john_snow/cost.png
-
-There is not much difference when compared with the Voronoi polygons, but it it illustrates a different way of getting to the same result. Other parameters (i.e. steepness of streets) can be incorporated this way, just changing the cost layer (now cost is 1 through all cells).
-
-
-If you want a little challenge, the ``cholera_deaths`` points layer can be extended sampling the closest point raster layer, adding a new attribute with the index of the closest pump. Try to find out how to do that.
-
-
-
-
+Combining with the pumps layer, we see that there is one pump clearly in the hotspot where the maximum density of death cases is found.

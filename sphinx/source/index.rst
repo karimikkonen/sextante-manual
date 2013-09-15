@@ -24,21 +24,13 @@ Contents:
    vector_calculator
    extents
    html
-   john_snow
-   cutting_merging   
+   john_snow    
+   interpolation
    hydro
    modeler_twi
    modeler_hydro
-   modeler_hydro_calculator
-   modeler_hydro_twi
-   interpolation
-   interpolation_cross
    iterative
-   iterative_model
    batch_conversion
-   batch_modeler
-   modeler_depend_on_algorithm   
-   first_script_twi
-   second_script_vector
+
 
 
