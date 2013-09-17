@@ -11,7 +11,7 @@ Open the data corresponding to this chapter. It should look like this.
 
 You will recognize our well-known DEM from previous chapters and a set of watersheds extracted from it. Imagine that you need to cut the DEM into several smaller layers, each of them containing just the elevation data corresponding to a single watershed. That will be useful if you later want to calculate some parameters related to each watershed, such as its mean elevation or it hypsographic curve.
 
-This can be a lengthy and tedious task, specially if the number of watersheds is large. However, it is a task that can be easily automated, as we will see.
+This can be a lengthy and tedious task, especially if the number of watersheds is large. However, it is a task that can be easily automated, as we will see.
 
 The algorithm to use for clipping a raster layer with a polygon layer is called *Clip grid with polygons*, and has the following parameters dialog.
 
