@@ -9,7 +9,7 @@ Open the example data for this lesson, which should look like this.
 
 .. image:: img/interpolation/project.png
 
-The data correspond to crop yield data, as produced by a modern harvester, and we will use it to get a raster layer of crop yield. WE do not plan to do any further analysis with that layer, but just to use it as a backgroun layer for easily identifying the most productive areas and also those where productivity can be improved.
+The data correspond to crop yield data, as produced by a modern harvester, and we will use it to get a raster layer of crop yield. We do not plan to do any further analysis with that layer, but just to use it as a backgroun layer for easily identifying the most productive areas and also those where productivity can be improved.
 
 The first thing to do is to clean--up the layer, since it contains redundant points. These are caused by the movement of the harvester, in places where it has to do a turn or it changes its speed for some reason. The *Point filter* algorithm will be useul for this. We will use it twice, to remove points that can be considered outliers both in the upper and lower part of the distribution.
 
@@ -29,7 +29,7 @@ Now let's rasterize the layer using the *Rasterize vector layer* algorith.
 
 .. image:: img/interpolation/rasterize.png
 
-The *Filtered layer* layer refers to the resulting one of the second filter. It has the same name as the one produced by the first filter, since the name is assigned by the algorithm, but you should not use the first one. Since we will not be using it for anything else, you can safely remove it from your proect to avoid confusion, and leave just the last filtered layer.
+The *Filtered layer* layer refers to the resulting one of the second filter. It has the same name as the one produced by the first filter, since the name is assigned by the algorithm, but you should not use the first one. Since we will not be using it for anything else, you can safely remove it from your project to avoid confusion, and leave just the last filtered layer.
 
 The resulting raster layer looks like this.
 

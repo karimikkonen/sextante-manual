@@ -6,9 +6,7 @@ More algorithms and data types
 
 For this lessons we will need a table and a polygons layer. We are going to create a points layer based on coordinates in the table, and then count the number of points in each polygon. If you open the QGIS project corresponding to this lesson, you will find a table with X and Y coordinates, but you will find no polygons layer. Don't worry, we will create it using a processing geoalgorithm.
 
-The first thing we are going to do is to create a points layer from the coordinates in the table, using the *Points layer from table* algorithm. You now know how to use the search box, so it should not be hard for you to find it. Double--click on it to run it and get to the following dialog.
-
-.. image:: img/second_alg/points_from_table.png
+The first thing we are going to do is to create a points layer from the coordinates in the table, using the *Points layer from table* algorithm. You now know how to use the search box, so it should not be hard for you to find it. Double--click on it to run it and get to its following dialog.
 
 This algorithm, like the one from the previous lesson, just generates a single output, and it has three inputs:
 
@@ -16,6 +14,7 @@ This algorithm, like the one from the previous lesson, just generates a single o
 - X an Y fields: these two parameters are linked to the first one. The corresponding selector will show the name of those fields that are available in the selected table. Select the *XCOORD* field for the *X* parameter, and the *YYCOORD* field for the *Y* parameter.
 - CRS: Since this algorithm takes no input layers, it cannot assign a CRS to the output layer based on them. Instead, it asks you to manually select the CRS that the coordinates in the table use. Click on the button on the left--hand side to open the QGIS CRS selector, and select EPSG:4326 as the output CRS. We are using this CRS because the coordinates in the table are in that CRS.
 
+Your dialog should look like this.
 
 .. image:: img/second_alg/points_from_table.png
 

@@ -26,7 +26,7 @@ This is helpful to understand what is going on. Advanced users will be able to a
 
 .. image:: img/log/history.png
 
-This can be very useful when starting wroking with the console, to learn about the syntax of algorithms. We will use it when we discuss how to run analysis commands from the console.
+This can be very useful when starting working with the console, to learn about the syntax of algorithms. We will use it when we discuss how to run analysis commands from the console.
 
 The history is also interactive, and you can re--run any previous algorithm just by double--clicking on its entry. This is an easy way of replicating the work we already did before.
 
